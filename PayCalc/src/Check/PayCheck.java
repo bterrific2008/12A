@@ -1,13 +1,15 @@
-//PayCheck.java
-//Mitchell Pon
-//CruzID: mjpon
-//Programming Assignment 1
-// A Basic calculator that figures out the final wage of the week. You must enter your hours and pay. Overtime pay is added
-// on via 1.5 times the standard pay
 
 
 
 package Check;
+
+
+//PayCheck.java
+//Mitchell Pon
+//CruzID: mjpon
+//Programming Assignment 1
+//A Basic calculator that figures out the final wage of the week. You must enter your hours and pay. Overtime pay is added
+//on via 1.5 times the standard pay
 
 import java.util.Scanner;
 
@@ -33,7 +35,7 @@ public class PayCheck {
 			double overtime = hours - 40;
 			total =  (40 * payAmount) + (overtime * payAmount * 1.5);
 		}else if(hours<=40){ // overtime hour requirment is not met
-			total =  (40 * payAmount);
+			total =  (hours * payAmount);
 		}
 		return total;
 	}
