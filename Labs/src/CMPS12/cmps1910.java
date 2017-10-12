@@ -10,12 +10,13 @@ import java.util.Scanner;
  * 
  */
 
+import java.util.Scanner; 
+
 public class cmps1910 {
 	   public static void main(String[] args) {
 		      Scanner scnr = new Scanner(System.in);
 		      char triangleChar = '-';
 		      int triangleHeight = 0;
-		      String charholder = "";
 		      int i; // changes to the next line
 		      
 		      System.out.println("Enter a character:"); //gets the character you want for the triangle
@@ -26,14 +27,11 @@ public class cmps1910 {
 		      System.out.print(""); 
 		      
 		for(i = 0; i < triangleHeight; i++) { //iterates to the next line
-			charholder = charholder.trim();
 			System.out.println();
 			for(int j = 0; j <= i; j++) { //putting in characters in every line
-				charholder = charholder + (triangleChar + " ");
-				}
-			System.out.print(charholder.trim());
+				System.out.print(triangleChar + " ");
 			}
-	   
+	   } 	System.out.println(); // for freaking whitespace requirements.....
 	   return;
 	}
 }
