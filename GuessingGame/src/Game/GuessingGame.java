@@ -14,7 +14,7 @@ public class GuessingGame {
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 		String inputname;
-		int guess1, guess2, guess3;
+		int guess1;
 		boolean keepGoing = true;
 		// Random number generator, doubles then goes the int
 		int randNum =  0;
@@ -27,21 +27,31 @@ public class GuessingGame {
 		System.out.println("I’m thinking of an integer between 1 and 10. You have 3 guesses.");
 		System.out.print(" Your first guess: ");
 		
-		String winning = ("Congratulations" + inputname + "! " + "You won in 2 guesses.");
+		// holds the modified text to display to the user when interacting
+		String winning = ("Congratulations " + inputname + "! " + "You won in 2 guesses.");
 		String[] numGuess= {"first", "second", "third"};
 		int i = 0;
-		//checks if the number is the right guess	
+		
+		//loop checks if the number is the right guess	
 		while(keepGoing) {
-			System.out.println(" Your " + numGuess[i] +" guess: ";
+			System.out.println(" Your " + numGuess[i] +" guess: ");
 			guess1 = (int) scnr.nextDouble();
-			if(guess1>randNum) {
-				System.out.println("Too high, guess lower.");
-			} else if(guess1<randNum) {
+			//kills the loop if you lost
+			if (numGuess[i].equals("third"))  {
+				keepGoing = false; 
+				System.out.println("Game over "+ inputname + " , you lose.\r\n");
+			//number is too high
+			} else if(guess1<randNum) { 
 				System.out.println("Too low, guess higher.");
+			//if the number is too low
+			} else if(guess1>randNum) { 
+				System.out.println("Too high, guess lower.");
+			// if you WON BIG
 			} else {
 				System.out.println(winning);
-				keepGoing = false;
+				keepGoing = false; //kills the loop if you won
 			}
+			// keeps on iterating to the next guess :P
 			i++;	
 			
 		}
