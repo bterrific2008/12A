@@ -25,7 +25,7 @@ public class GuessingGame {
 		System.out.println("Welcome to the number guessing game. What is your honorable name?");
 		inputname = scnr.nextLine();
 		System.out.println("I’m thinking of an integer between 1 and 10. You have 3 guesses.");
-		System.out.print(" Your first guess: ");
+		
 		
 		// holds the modified text to display to the user when interacting
 		String winning = ("Congratulations " + inputname + "! " + "You won in 2 guesses.");
@@ -34,7 +34,7 @@ public class GuessingGame {
 		
 		//loop checks if the number is the right guess	
 		while(keepGoing) {
-			System.out.println(" Your " + numGuess[i] +" guess: ");
+			System.out.println("Your " + numGuess[i] +" guess: ");
 			guess1 = (int) scnr.nextDouble();
 			//kills the loop if you lost
 			if (numGuess[i].equals("third"))  {
