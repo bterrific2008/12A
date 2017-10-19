@@ -106,12 +106,25 @@ public class AerialAssistWriter {
 	}
 	
 	public static String shortenSpace(String input) {
-		String split[] = input.split(" ");
-		String fword = "";
-		for(int i = 0; i<split.length; i++) {
-			fword = fword + split[i] + " ";
+//		System.out.println("cookie");
+//		String split[] = input.split(" ");
+//		String fword = "";
+//		for(int i = 0; i<split.leng ,th; i++) {
+//			split[i] = split[i].trim();
+//			fword = fword + split[i] + " ";
+//		}
+//		return fword;
+		// used a toString method for this to work
+		boolean founder  = true;
+		while(founder)
+			if(input.indexOf("  ")>=0) {
+				input = input.replaceAll("  ", " ");
+			} else if(input.indexOf("  ")<=-1) { 
+				founder = false;
+				return input;
+			}
+		return input;
+
 		}
-		return fword;
-	}
 	
 }

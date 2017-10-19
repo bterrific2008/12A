@@ -5,9 +5,9 @@ import java.util.Scanner;
 //GuessingGame.java
 //Mitchell Pon
 //CruzID: mjpon
-//Programming Assignment 1
-//A Basic calculator that figures out the final wage of the week. You must enter your hours and pay. Overtime pay is added
-//on via 1.5 times the standard pay
+//Programming Assignment 2 - GuessingGame
+// This is a number guessing game which ask for three guesses. Failure to get the guess will result in an angry reply
+//success will be granted a congrats
 
 public class GuessingGame {
 
@@ -19,27 +19,30 @@ public class GuessingGame {
 		// Random number generator, doubles then goes the int
 		int randNum =  0;
 		randNum = (int) (Math.random() *10);
-		System.out.println(randNum);
 		
 		// The actual game: Asks for name and ask for the guesses. Tells if you failed or not
 		System.out.println("Welcome to the number guessing game. What is your honorable name?");
 		inputname = scnr.nextLine();
 		System.out.println("I’m thinking of an integer between 1 and 10. You have 3 guesses.");
 		
-		
-		// holds the modified text to display to the user when interacting
-		String winning = ("Congratulations " + inputname + "! " + "You won in 2 guesses.");
-		String[] numGuess= {"first", "second", "third"};
 		int i = 0;
+		// holds the modified text to display to the user when interacting
+		String winning;
+		String[] numGuess= {"first", "second", "third"};
+		
 		
 		//loop checks if the number is the right guess	
 		while(keepGoing) {
+			winning = ("Congratulations " + inputname + "! " + "You won in "+ (i+1) + " guesses.");
 			System.out.println("Your " + numGuess[i] +" guess: ");
 			guess1 = (int) scnr.nextDouble();
 			//kills the loop if you lost
-			if (numGuess[i].equals("third"))  {
+			if(guess1==randNum) {
+				System.out.println(winning);
+				keepGoing = false; //kills the loop if you won
+			} else if (numGuess[i].equals("third"))  {
 				keepGoing = false; 
-				System.out.println("Game over "+ inputname + " , you lose.\r\n");
+				System.out.println("Game over "+ inputname + " , you lose.");
 			//number is too high
 			} else if(guess1<randNum) { 
 				System.out.println("Too low, guess higher.");
