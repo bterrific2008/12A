@@ -20,11 +20,11 @@ public class AerialAssistWriter {
 			// handles the options by transporting them to the proper method
 			if (input2.indexOf("c") >= 0) {
 				finale = getNumOfNonWSCharacters(input) + "";
-				System.out.print(finale + "\n");
+				System.out.print("Number of non-whitespace characters: " + finale + "\n");
 				// checker = false;
 			} else if (input2.indexOf("w") >= 0) {
-				finale = getNumOfWords(input);
-				System.out.print(finale + "\n");
+				finale = getNumOfWords(input) +"";
+				System.out.print("Number of words: " + finale + "\n");
 				// checker = false;
 			} else if (input2.indexOf("f") >= 0) {
 				finale = findText(input) + "";
@@ -68,19 +68,19 @@ public class AerialAssistWriter {
 	public static int getNumOfNonWSCharacters(String input) {
 		int counter;
 		// note, needs the shorten space method here to prevent errors
-		String split[] = input.split(" ");
-		counter = split.length;
+		input = input.replaceAll(" ", "");
+		counter = input.length();
 		return counter;
 
 	}
 
-	public static String getNumOfWords(String input) {
+	public static int getNumOfWords(String input) {
 		int counter;
 		// splits the phrase word by word to count, split at each space
 		String split[] = input.split(" ");
 		// gets the final amount by looking at the array length, aka. how many words
 		counter = split.length;
-		return "Number of words: " + counter + "";
+		return counter;
 	}
 
 	public static int findText(String input) { // actually supposed to be int
@@ -92,7 +92,7 @@ public class AerialAssistWriter {
 		// asks for input from the user
 		System.out.print("Enter a word or phrase to be found: ");
 		String word = scr.nextLine();
-		while (founder) {
+		while (founder==true) {
 			// checks if we iterated through the entire phrase yet
 			if (i == split.length) {
 				founder = false;
